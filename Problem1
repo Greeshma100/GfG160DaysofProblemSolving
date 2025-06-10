@@ -1,0 +1,35 @@
+Problem 1 from GFG:
+Given an array of positive integers arr[], return the second largest element from the array. If the second largest element doesn't exist then return -1.
+
+Eg1:
+Input: arr[] = [12, 35, 1, 10, 34, 1]
+Output: 34
+Eg2:
+Input: arr[] = [10, 5, 10]
+Output: 5
+Explanation: The largest element of the array is 10 and the second largest element is 5.
+Eg3:
+Input: arr[] = [10, 10, 10]
+Output: -1
+Explanation: The largest element of the array is 10 and the second largest element does not exist.
+
+
+Code:
+
+class Solution {
+    public int GetSecondLargest(int[] arr) {
+        // code here
+        int size=arr.Length,first_max=-1,second_max=-2;
+        for(int i=0;i<size;i++)
+        {
+            if(first_max<arr[i] && arr[i]>second_max){
+            second_max=first_max;
+            first_max=arr[i];}
+            else if(first_max!=arr[i]&& arr[i]>second_max)
+            second_max=arr[i];
+        }
+        if(first_max==second_max)
+        return -1;
+ return second_max;
+    }
+}
